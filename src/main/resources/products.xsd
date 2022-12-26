@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://localhost:8080/api/products"
+           targetNamespace="http://localhost/api/products"
+           elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://localhost:8080/api/products ">
+    <xs:element name="productsRequest">
+        <xs:complexType>
+            <xs>
+                <xs:element name="title" type="xs:string"/>
+            </xs>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="productsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:products"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="products">
+        <xs:sequence>
+            <xs:element name="product" type="tns:product"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="price" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
